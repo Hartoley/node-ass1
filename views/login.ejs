@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="/todo" class="mx-auto shadow w-50 px-5 py-5 mt-3" method="post">
+        <h1>Todo App</h1>
+        <input class="form-control mt-3" type="text" placeholder="Title" name="title">
+        <input class="form-control mt-3" type="text" placeholder="Content" name="content">
+        <button class="btn btn-dark mt-3" type="submit">Addtodo</button>
+    </form>
+    <div>
+        <% todo.forEach((element, index) => { %>
+         <div class="d-flex justify-content-between align-items-center w-50 px-3">
+            <h1><%= element.title %></h1>
+            <h1><%= element.content %></h1>
+         </div>
+         <form action="/delete/<%= index %>" method="post">
+            <button class="btn btn-danger mt-3" type="submit">Delete</button>
+         </form>
+         <button action="/edit/<%= index %>" method="get" class="btn btn-success" type="submit">Edit</button>
+        <% }) %>
+    </div>
+ 
+</body>
+</html>
